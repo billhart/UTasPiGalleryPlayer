@@ -46,9 +46,9 @@ Can use keyboard commands to stop or synchronise playback (manually) across seve
 
 >p / space   pause/resume
 
->-           decrease volume
+>\-           decrease volume
 
->+ / =       increase volume
+>\+ / =       increase volume
 
 >left arrow  seek -30 seconds
 
@@ -75,43 +75,43 @@ Install some packages
 
 create file /etc/polkit-1/localauthority/50-local.d/50-mount-as-pi.pkla
 
-`[Media mounting by pi]
+`[Media mounting by pi]`
 
-Identity=unix-user:pi
+`Identity=unix-user:pi`
 
-Action=org.freedesktop.udisks.filesystem-mount
+`Action=org.freedesktop.udisks.filesystem-mount`
 
-ResultAny=yes`
+`ResultAny=yes`
 
 
 create /etc/supervisor/conf.d/udisks-glue.conf
 
-`[program:udisks-glue]
+`[program:udisks-glue]`
 
-user = pi
+`user = pi`
 
-command = udisks-glue -f
+`command = udisks-glue -f`
 
-autostart = true
+`autostart = true`
 
-autorestart = true
+`autorestart = true`
 
-stdout_logfile = /var/log/supervisor/udisks-glue-out.log
+`stdout_logfile = /var/log/supervisor/udisks-glue-out.log`
 
-stderr_logfile = /var/log/supervisor/udisks-glue-err.log`
+`stderr_logfile = /var/log/supervisor/udisks-glue-err.log`
 
 
 Add to the end of /home/pi/.profile
 
-`RUNLEVEL=$(runlevel | cut -f 2 -d" ")
+`RUNLEVEL=$(runlevel | cut -f 2 -d" ")`
 
-if [ "$RUNLEVEL" -eq "3" ]
+`if [ "$RUNLEVEL" -eq "3" ]`
 
-then
+`then`
 
-    /bin/bash /home/pi/fullscreenvideo.sh
+    `/bin/bash /home/pi/fullscreenvideo.sh`
     
-fi`
+`fi`
 
 
 Install the script and config file
