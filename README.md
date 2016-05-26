@@ -81,10 +81,12 @@ Install some packages:
 
 create file /etc/polkit-1/localauthority/50-local.d/50-mount-as-pi.pkla
 
-```[Media mounting by pi]
+```
+[Media mounting by pi]
 Identity=unix-user:pi
 Action=org.freedesktop.udisks.filesystem-mount
-ResultAny=yes```
+ResultAny=yes
+```
 
 
 create /etc/supervisor/conf.d/udisks-glue.conf
