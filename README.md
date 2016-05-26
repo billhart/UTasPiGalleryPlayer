@@ -14,9 +14,9 @@ Can use keyboard commands to stop or synchronise playback (manually) across seve
 
 >2           increase speed
 
-><           rewind
+>\<           rewind
 
->>           fast forward
+>\>           fast forward
 
 >z           show info
 
@@ -76,49 +76,34 @@ Install some packages
 create file /etc/polkit-1/localauthority/50-local.d/50-mount-as-pi.pkla
 
 `[Media mounting by pi]`
-
 `Identity=unix-user:pi`
-
 `Action=org.freedesktop.udisks.filesystem-mount`
-
 `ResultAny=yes`
 
 
 create /etc/supervisor/conf.d/udisks-glue.conf
 
 `[program:udisks-glue]`
-
 `user = pi`
-
 `command = udisks-glue -f`
-
 `autostart = true`
-
 `autorestart = true`
-
 `stdout_logfile = /var/log/supervisor/udisks-glue-out.log`
-
 `stderr_logfile = /var/log/supervisor/udisks-glue-err.log`
 
 
 Add to the end of /home/pi/.profile
 
 `RUNLEVEL=$(runlevel | cut -f 2 -d" ")`
-
 `if [ "$RUNLEVEL" -eq "3" ]`
-
 `then`
-
     `/bin/bash /home/pi/fullscreenvideo.sh`
-    
 `fi`
 
 
 Install the script and config file
 
 `cp fullscreenvideo.sh /home/pi`
-
 `chmod +x fullscreenvideo.sh`
-
 `cp config.txt /boot`
 
