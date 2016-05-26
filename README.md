@@ -11,51 +11,28 @@ Should play anything FFMPEG will play.
 Loop has several frames of black inbetween playback.
 Can use keyboard commands to stop or synchronise playback (manually) across several players.
 >1           decrease speed
-
 >2           increase speed
-
 >\<           rewind
-
 >\>           fast forward
-
 >z           show info
-
 >j           previous audio stream
-
 >k           next audio stream
-
 >i           previous chapter
-
 >o           next chapter
-
 >n           previous subtitle stream
-
 >m           next subtitle stream
-
 >s           toggle subtitles
-
 >w           show subtitles
-
 >x           hide subtitles
-
 >d           decrease subtitle delay (- 250 ms)
-
 >f           increase subtitle delay (+ 250 ms)
-
 >q           exit omxplayer
-
 >p / space   pause/resume
-
 >\-           decrease volume
-
 >\+ / =       increase volume
-
 >left arrow  seek -30 seconds
-
 >right arrow seek +30 seconds
-
 >down arrow  seek -600 seconds
-
 >up arrow    seek +600 seconds
 
 
@@ -75,35 +52,40 @@ Install some packages
 
 create file /etc/polkit-1/localauthority/50-local.d/50-mount-as-pi.pkla
 
-`[Media mounting by pi]`
-`Identity=unix-user:pi`
-`Action=org.freedesktop.udisks.filesystem-mount`
-`ResultAny=yes`
+```[Media mounting by pi]
+Identity=unix-user:pi
+Action=org.freedesktop.udisks.filesystem-mount
+ResultAny=yes```
 
 
 create /etc/supervisor/conf.d/udisks-glue.conf
 
-```[program:udisks-glue]
+```
+[program:udisks-glue]
 user = pi
 command = udisks-glue -f
 autostart = true
 autorestart = true
 stdout_logfile = /var/log/supervisor/udisks-glue-out.log
-stderr_logfile = /var/log/supervisor/udisks-glue-err.log```
-
+stderr_logfile = /var/log/supervisor/udisks-glue-err.log
+```
 
 Add to the end of /home/pi/.profile
 
-```RUNLEVEL=$(runlevel | cut -f 2 -d" ")
+```
+RUNLEVEL=$(runlevel | cut -f 2 -d" ")
 if [ "$RUNLEVEL" -eq "3" ]
 then
     /bin/bash /home/pi/fullscreenvideo.sh
-fi```
+fi
+```
 
 
 Install the script and config file
 
-```cp fullscreenvideo.sh /home/pi
+```
+cp fullscreenvideo.sh /home/pi
 chmod +x fullscreenvideo.sh
-cp config.txt /boot```
+cp config.txt /boot
+```
 
