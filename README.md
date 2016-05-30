@@ -76,7 +76,7 @@ Summary - Format as at least a 4GB raspbian + 4GB+ VIDEOS exfat partition
 
 Install some packages:
 
-`apt-get install exfat-fuse exfat-utils hfsplus hfsprogs hfsutils udisks-glue policykit-1 supervisor`
+`apt-get install exfat-fuse exfat-utils hfsplus hfsprogs hfsutils udisks-glue policykit-1 supervisor fbi`
 
 
 create file /etc/polkit-1/localauthority/50-local.d/50-mount-as-pi.pkla
