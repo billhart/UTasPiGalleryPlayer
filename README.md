@@ -65,7 +65,7 @@ Can use keyboard commands to stop or synchronise playback (manually) across seve
 
 
 A 16GB formatted disk (May 2016) image is available from here
-https://www.dropbox.com/s/nljhpel7m2y0mvc/pi-gallery-25-may-2016.gz
+https://www.dropbox.com/sh/s85lp5g304r1rig/AAA4MZQmsBwDoDMJzXMxSSROa?dl=0
 
 
 ##Roll Yer Own
